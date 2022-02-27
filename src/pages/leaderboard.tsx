@@ -54,7 +54,7 @@ const Leaderboard: NextPage = () => {
   const translate = useTranslation(localisation)
 
   return (
-    <Root>
+    <>
       <Head>
         <title>Leaderboard | Help Ukraine</title>
         <meta
@@ -116,7 +116,7 @@ const Leaderboard: NextPage = () => {
           </Box>
         </Box>
       </Flex>
-    </Root>
+    </>
   )
 }
 
