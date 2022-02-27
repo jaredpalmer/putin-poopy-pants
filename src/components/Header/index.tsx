@@ -20,13 +20,6 @@ import { shorten } from '../../utils/shorten'
 import { NavButton } from './NavButton'
 import { NavDrawerItem, NavItem } from './NavItem'
 
-const navItems = [
-  { text: 'Stake', href: '/stake' },
-  { text: 'Donate', href: '/donate' },
-  { text: 'Explore NFTs', href: '/explore' },
-  { text: 'About', href: '/about' }
-]
-
 export const Header = () => {
   const { activateBrowserWallet, ens, account } = useWallet()
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -61,7 +54,7 @@ export const Header = () => {
                 width="auto"
               >
                 {navItems.map((navItem, index) => (
-                  <NavItem key={index} href={navItem.href}>
+                  <NavItem key={`${navItem.text}-desktop`} href={navItem.href}>
                     {navItem.text}
                   </NavItem>
                 ))}
@@ -122,7 +115,10 @@ export const Header = () => {
             <DrawerContent>
               <DrawerBody background="#005BBB" px={2}>
                 {navItems.map((navItem, index) => (
-                  <NavDrawerItem key={index} href={navItem.href}>
+                  <NavDrawerItem
+                    key={`${navItem.text}-sidebar`}
+                    href={navItem.href}
+                  >
                     {navItem.text}
                   </NavDrawerItem>
                 ))}
